@@ -33,7 +33,7 @@ if ('development' == app.get('env')) {
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 //mongoose.connect('mongodb://localhost/mapamun_Dengue', function(error){
-mongoose.connect('mongodb://yeison:oncecaldas11@ds061298.mongolab.com:61298/mapamun_dengue', function(error){
+mongoose.connect(' mongodb://yeison:oncecaldas11@ds053320.mongolab.com:53320/mapamun_dengue', function(error){
     
    if(error){
       throw error; 
