@@ -51,6 +51,18 @@ aplicacion.controller('Municipios', function($scope, $http) {
       $("#mostrar_query").select();
       
   });
+    
+           
+            // ontengo el contenido del textarea
+            var txt = document.getElementById('mostrar_query')
+        
+
+            // se genera y descarga el archivo
+            document.getElementById('link').onclick = function(code) {
+            this.href = 'data:text/plain;charset=utf-8,'
+            + encodeURIComponent(txt.value);
+            };
+           
                 
     //('#mostrar_query').click({})            
              $(function() {
