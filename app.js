@@ -33,7 +33,9 @@ if ('development' == app.get('env')) {
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 //mongoose.connect('mongodb://localhost/mapamun_Dengue', function(error){
-mongoose.connect('mongodb://yeison:oncecaldas11@ds053320.mongolab.com:53320/mapamun_dengue', function(error){
+mongoose.connect('mongodb://localhost/mapamun_Dengue', function(error){
+
+//mongoose.connect('mongodb://yeison:oncecaldas11@ds053320.mongolab.com:53320/mapamun_dengue', function(error){
     
    if(error){
       throw error; 
@@ -63,10 +65,14 @@ var municipio = mongoose.model('municipio',
 
 app.get('/Dengue_listar', function(req, res){
    console.log("recibo el municipio");
-
+    
+ console.log(req.query.anio); //recibir
+   var anio=parseInt(req.query.anio);
  
     
-	municipio.find({},{"mun_nombre":1,"mun_historico":1}, function(error,resultadoMun){
+	municipio.find({
+    "mun_historico.mun_anio": anio
+    },{"mun_nombre":1,"mun_historico.mun_anio.$":1}, function(error,resultadoMun){
       	if(error){
       		res.send('Error.');
       	}else{
@@ -74,6 +80,7 @@ app.get('/Dengue_listar', function(req, res){
       	}
    }).sort({ "mun_nombre":1})
 });
+
 
    var rio = mongoose.model('rio', 
                new Schema({ }), 
