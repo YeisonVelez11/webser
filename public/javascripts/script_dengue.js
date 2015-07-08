@@ -2,7 +2,7 @@ var aplicacion = angular.module('aplicacion', []);
 aplicacion.controller('Municipios', function($scope, $http) {
 
 
-
+    $("#contenedorSlider").hide();
     // Propiedades iniciales del mapa
        var anio= 2015;
      $( "#slider-range-max" ).slider({
@@ -39,18 +39,12 @@ aplicacion.controller('Municipios', function($scope, $http) {
 
                $( "#mostrar_query").val(a);  
                       
-         /*
-                $(function() {
-  $('#but').click(function() {
-      fnSelect('mostrar_query');
-  });
-});
-           */
-                
-  $("#mostrar_query").click(function() {
-      $("#mostrar_query").select();
-      
-  });
+   
+
+              $("#mostrar_query").click(function() {
+                  $("#mostrar_query").select();
+
+              });
     
            
             // ontengo el contenido del textarea
